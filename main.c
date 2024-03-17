@@ -57,21 +57,25 @@ void paste_part_into_image(t_img *img1, t_img *img2, t_action action, int size_w
 	}
 }
 
-int main(int argc, char *argv[]) 
-{   
-    char *map;
+void valid(int arc, char **arv)
+{
+	char *map;
     int fd;
 
-    if (argc != 2) {
-        printf("Usage: %s <map>\n", argv[0]);
+    if (arc != 2) {
+        printf("Usage: %s <map>\n", arv[0]);
         return 1;
     }
-    map = argv[1];
+    map = arv[1];
     fd = open(map, O_RDONLY);
     if (fd == -1) {
         perror("Error opening file");
         return 1;
     }
     close(fd);
+}
+int main(int argc, char *argv[]) 
+{   
+    
     return 0;
 }
