@@ -10,8 +10,8 @@
 #include "ft_printf/ft_printf.h"
 #include "libft/libft.h"
 
-#define WINDOW_WIDTH 800
-#define WINDOW_HEIGHT 600
+#define WIDTH 640
+#define HEIGHT 640
 
 #define MLX_ERROR 1
 
@@ -51,7 +51,7 @@ typedef struct s_data
 {
     void	*mlx_ptr;
     void	*win_ptr;
-    t_img   *img;
+    t_img   img;
 }	t_data;
 
 #endif

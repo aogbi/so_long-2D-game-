@@ -35,7 +35,11 @@ void paste_part_into_image(t_img *img1, t_img *img2, t_action action)
 		while (j < img1->width)
 		{
 			if (img1_addr[j + i * img1->width] != -16777216)
+			{
 				img2_addr[(action.x + j) + ((i + action.y) * (img2->width))] = img1_addr[j + i * img1->width];
+			}
+			else
+			    printf("%d\n", img1_addr[j + i * img1->width]);
 			j++;
 		}
 		i++;
@@ -83,7 +87,7 @@ int main(int argc, char **argv)
     data.img.width = WIDTH;
     data.img.height = HEIGHT;
 	put_background(&data);
-	put_image(&data, "xpm/fences.xpm", (t_action){0, 0, 0, 0});
+	put_image(&data, "xpm/slime.xpm", (t_action){0, 0, 0, 0});
 	mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, data.img.mlx_img, 0, 0);
 	mlx_loop(data.mlx_ptr);
 	mlx_destroy_image(data.mlx_ptr, &data.img);
