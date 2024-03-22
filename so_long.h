@@ -44,7 +44,7 @@ typedef struct s_action
     int        x;
     int        sx;
     int        y;
-    int         sy;
+    int        sy;
 }   t_action;
 
 typedef struct s_data
