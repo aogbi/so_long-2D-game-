@@ -1,4 +1,14 @@
-#include "so_long.h"
+#include "../includes/so_long.h"
+
+int valid_size(void *mlx_ptr, t_rules map)
+{
+	int sizex, sizey;
+
+	mlx_get_screen_size(mlx_ptr, &sizex, &sizey);
+	if (sizex < map.len*32 || sizey < map.height*32)
+	    return (1);
+	return (0);
+}
 
 int P(t_rules *rules, int index)
 {
@@ -118,9 +128,6 @@ int map_is_valid(t_rules rules)
 		}
 		i++;
 	}
-	rules.map_valid = cant_win(&rules, rules.p_index);
-	if (rules.map_valid)
-	    return (1);
 	return (0);
 }
 
@@ -141,32 +148,34 @@ t_rules read_map(int fd)
 		rules.map = ft_strjoin(rules.map, line);
 		free_memory(&line);
 		line = get_next_line(fd);
-        if (line && ft_strlen(line) != rules.len)
+        if (line && (ft_strlen(line) != rules.len))
             return (rules);
 		rules.height++;
 	}
 	if (map_is_valid(rules))
-		return (rules);
-	rules.map_valid = 0;
+		rules.map_valid = 0;
 	return (rules);
 }
 
-int open_file(int arc, char **arv)
+t_rules open_file(int arc, char **arv)
 {
     int fd;
 	char *ber;
+	t_rules map;
 
+	map.map_valid = 1;
     if (arc != 2) {
         ft_printf("nssiti map\n");
-        return -1;
+        return map;
     }
 	ber = ft_strrchr(arv[1], '.');
 	if (ft_strncmp(ber, ".ber", 5) != 0)
-	    return -1;
+	    return map;
     fd = open(arv[1], O_RDONLY);
     if (fd == -1) {
         perror("hadchi ma3raft malo");
-        return -1;
+        return map;
     }
-	return (fd);
+	map =  read_map(fd);
+	return (map);
 }

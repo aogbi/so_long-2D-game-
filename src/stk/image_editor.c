@@ -1,4 +1,4 @@
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 void copy_part_of_image(t_img *img1, t_img *img2, t_action action) 
 {
