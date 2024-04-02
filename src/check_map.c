@@ -6,7 +6,7 @@
 /*   By: aogbi <aogbi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:28:38 by aogbi             #+#    #+#             */
-/*   Updated: 2024/03/28 08:59:24 by aogbi            ###   ########.fr       */
+/*   Updated: 2024/03/30 13:45:49 by aogbi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int map_rules_help (t_rules *rules, int i, int j)
 		if(rules->p != 0)
 			return (0);
 		rules->p++;
-		rules->p_index = rules->map[j + (i * rules->len)];
+		rules->p_index = j + (i * rules->len);
 	}
 	else if (rules->map[j + (i * rules->len)] == 'E')
 	{
@@ -76,7 +76,7 @@ int map_is_valid(t_rules *rules)
 	size_t i;
 	size_t j;
 
-    i = 0;
+	i = 0;
 	while (i < rules->height)
 	{
 		j = 0;

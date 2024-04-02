@@ -6,7 +6,7 @@
 /*   By: aogbi <aogbi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:23:13 by aogbi             #+#    #+#             */
-/*   Updated: 2024/03/27 09:56:15 by aogbi            ###   ########.fr       */
+/*   Updated: 2024/03/29 17:58:52 by aogbi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void put_background(t_data *data)
 	int        i = 0;
 	int        j;
 
-	img.mlx_img = mlx_xpm_file_to_image(data->mlx_ptr, "xpm/Dark-grass-tileset.xpm", &img.width, &img.height);
+	img.mlx_img = mlx_xpm_file_to_image(data->mlx_ptr, "XPM/grass.xpm", &img.width, &img.height);
 	img.addr = mlx_get_data_addr(img.mlx_img, &img.bpp, &img.line_len, &img.endian);
 	while (i * img.height < data->img.height)
 	{

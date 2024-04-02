@@ -6,7 +6,7 @@
 /*   By: aogbi <aogbi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:23:36 by aogbi             #+#    #+#             */
-/*   Updated: 2024/03/28 11:18:27 by aogbi            ###   ########.fr       */
+/*   Updated: 2024/03/31 15:17:24 by aogbi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,9 @@ int map_checker(t_rules *rulse);
 int valid_size(void *mlx_ptr, t_rules map);
 
 int	open_window(t_rules *rules, t_data *data);
+
+void put_background(t_data *data);
+
+void put_image(t_data *data, char *filename, t_action index);
 
 #endif
