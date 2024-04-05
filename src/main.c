@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aogbi <aogbi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: aogbi <aogbi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:23:20 by aogbi             #+#    #+#             */
-/*   Updated: 2024/03/30 13:09:51 by aogbi            ###   ########.fr       */
+/*   Updated: 2024/04/02 18:08:16 by aogbi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int main(int arc, char **arv)
 
 	fd = open_file(arc, arv);
 	map = (t_rules){NULL, 0, 0, 0, 0, 0, 0};
+	data.mlx_ptr = mlx_init();
 	if (data.mlx_ptr == NULL)
         return (MLX_ERROR);
-	data.mlx_ptr = mlx_init();
 	if (!read_map(fd, &map) || !valid_size(data.mlx_ptr, map) || !map_is_valid(&map) ||!map_checker(&map))
 	{
 		ft_printf("Problem in map file");

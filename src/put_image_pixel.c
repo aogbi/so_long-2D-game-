@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_image_pixel.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aogbi <aogbi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: aogbi <aogbi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:23:13 by aogbi             #+#    #+#             */
-/*   Updated: 2024/03/29 17:58:52 by aogbi            ###   ########.fr       */
+/*   Updated: 2024/04/05 00:20:24 by aogbi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 void paste_part_into_image(t_img *img1, t_img *img2, t_action action) 
 {
-    int i = 0;
+    int i;
 	int j;
-	int *img1_addr = (int *)img1->addr;
-	int *img2_addr = (int *)img2->addr;
+	int *img1_addr;
+	int *img2_addr;
 
+    i = 0;
+    img1_addr = (int *)img1->addr;
+	img2_addr = (int *)img2->addr;
 	while (i < img1->height)
 	{
 		j = 0;

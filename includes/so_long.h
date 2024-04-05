@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aogbi <aogbi@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: aogbi <aogbi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:23:36 by aogbi             #+#    #+#             */
-/*   Updated: 2024/03/31 15:17:24 by aogbi            ###   ########.fr       */
+/*   Updated: 2024/04/04 18:00:00 by aogbi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@
 #include "../libft/libft.h"
 
 #define MLX_ERROR 1
-#define RED_PIXEL 0xFF0000
+#define CHAR_SIZE 16
+#define NUM_FRAMES 6
 
 typedef struct s_rules
 {
@@ -60,6 +61,16 @@ typedef struct s_data
     t_img   img;
 }	t_data;
 
+typedef struct s_game {
+    t_data *data;
+    t_rules rules;
+    int player_x;
+    int player_y;
+    char *filename;
+    char animation;
+    int index;
+} t_game;
+
 
 int open_file(int arc, char **arv);
 
@@ -80,5 +91,7 @@ int	open_window(t_rules *rules, t_data *data);
 void put_background(t_data *data);
 
 void put_image(t_data *data, char *filename, t_action index);
+
+void copy_part_of_image(t_data *data, char *filename, t_action action, t_action place);
 
 #endif
