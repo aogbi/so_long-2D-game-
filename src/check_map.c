@@ -6,7 +6,7 @@
 /*   By: aogbi <aogbi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:28:38 by aogbi             #+#    #+#             */
-/*   Updated: 2024/04/02 18:09:18 by aogbi            ###   ########.fr       */
+/*   Updated: 2024/04/07 02:38:40 by aogbi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int open_file(int arc, char **arv)
     if (arc != 2)
 		return -1;
 	ber = ft_strrchr(arv[1], '.');
+	if (ber == NULL)
+	    return -1;
 	if (ft_strncmp(ber, ".ber", 5) != 0)
 	    return -1;
     fd = open(arv[1], O_RDONLY);
@@ -44,7 +46,7 @@ int map_rules_help (t_rules *rules, int i, int j)
 	else if (rules->map[j + (i * rules->len)] == 'C')
 		rules->c++;
 	else if (rules->map[j + (i * rules->len)] == '1');
-	else if (rules->map[j + (i * rules->len)] == '0');
+	else if (rules->map[j + (i * rules->len)] == '0' || rules->map[j + (i * rules->len)] == 'A');
 	else
 		return (0);
 	return (1);
@@ -91,6 +93,14 @@ int map_is_valid(t_rules *rules)
 	return (1);
 }
 
+void read_all_map(int fd, char *line)
+{
+	while(line)
+	{
+		free_memory(&line);
+		line = get_next_line(fd);
+	}
+}
 
 int read_map(int fd, t_rules *rules)
 {
@@ -109,7 +119,7 @@ int read_map(int fd, t_rules *rules)
 		line = get_next_line(fd);
 		if (line && (ft_strlen(line) != rules->len))
 		{
-			free_memory(&line);
+			read_all_map(fd, line);
 			free_memory(&rules->map);
 			return (0);
 		}

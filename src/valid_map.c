@@ -6,7 +6,7 @@
 /*   By: aogbi <aogbi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:42:12 by aogbi             #+#    #+#             */
-/*   Updated: 2024/04/02 18:20:12 by aogbi            ###   ########.fr       */
+/*   Updated: 2024/04/06 03:48:27 by aogbi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ int map_checker(t_rules *rulse)
 	t_rules	tmp;
 	int	valid;
 
+	if (rulse->p == 0 || rulse->e == 0)
+		return (0);
 	tmp = (t_rules){ft_strdup(rulse->map), rulse->len, rulse->height, rulse->p_index, rulse->p, rulse->e, rulse->c};
 	valid = cant_win(&tmp, tmp.p_index);
 	free_memory(&tmp.map);

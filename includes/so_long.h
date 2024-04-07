@@ -6,7 +6,7 @@
 /*   By: aogbi <aogbi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:23:36 by aogbi             #+#    #+#             */
-/*   Updated: 2024/04/04 18:00:00 by aogbi            ###   ########.fr       */
+/*   Updated: 2024/04/07 05:29:32 by aogbi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,13 @@
 #define MLX_ERROR 1
 #define CHAR_SIZE 16
 #define NUM_FRAMES 6
+#define RGBA 0xff000000
 
 typedef struct s_rules
 {
     char *map;
-    size_t len;
-    size_t height;
+    ssize_t len;
+    ssize_t height;
     int p_index;
 	int p;
 	int e;
@@ -50,8 +51,8 @@ typedef struct s_img
 
 typedef struct s_action
 {
-    int        x;
-    int        y;
+    ssize_t        x;
+    ssize_t        y;
 }   t_action;
 
 typedef struct s_data
@@ -61,14 +62,20 @@ typedef struct s_data
     t_img   img;
 }	t_data;
 
-typedef struct s_game {
+typedef struct s_game 
+{
     t_data *data;
     t_rules rules;
-    int player_x;
-    int player_y;
+    t_action action;
+    t_action kill;
+    ssize_t player_x;
+    ssize_t player_y;
     char *filename;
+    char *door;
+    char *slime;
     char animation;
     int index;
+    int cont;
 } t_game;
 
 
