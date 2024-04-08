@@ -6,7 +6,7 @@
 /*   By: aogbi <aogbi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:28:38 by aogbi             #+#    #+#             */
-/*   Updated: 2024/04/07 02:38:40 by aogbi            ###   ########.fr       */
+/*   Updated: 2024/04/07 18:26:07 by aogbi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int map_rules_help (t_rules *rules, int i, int j)
 	return (1);
 }
 
-int map_rules (t_rules *rules, size_t i, size_t j)
+int map_rules (t_rules *rules, ssize_t i, ssize_t j)
 {
 	if (i == 0 || i == (rules->height - 1))
 	{
@@ -75,8 +75,8 @@ int map_rules (t_rules *rules, size_t i, size_t j)
 
 int map_is_valid(t_rules *rules)
 {
-	size_t i;
-	size_t j;
+	ssize_t i;
+	ssize_t j;
 
 	i = 0;
 	while (i < rules->height)
@@ -117,7 +117,7 @@ int read_map(int fd, t_rules *rules)
 		ft_strjoin_get(&rules->map, line);
 		free_memory(&line);
 		line = get_next_line(fd);
-		if (line && (ft_strlen(line) != rules->len))
+		if (line && ((ssize_t)ft_strlen(line) != rules->len))
 		{
 			read_all_map(fd, line);
 			free_memory(&rules->map);
