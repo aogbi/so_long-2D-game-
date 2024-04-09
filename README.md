@@ -1,5 +1,7 @@
 # So_Long
 
+<div align="center"><img src="map/so_long.gif.gif" /></div>
+
 !So_Long
 
 This is a project at 42, and the first graphical project using the MiniLibX.
@@ -8,7 +10,6 @@ So_Long is a side-scrolling game similar to Mario Bros.
 
 The player's goal is to collect all the coins on the map and then escape with the minimum number of movements.
 
-<div align="center"><img src="map/so_long.gif.gif" /></div>
 
 ---
 
