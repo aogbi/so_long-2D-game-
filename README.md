@@ -8,6 +8,8 @@ So_Long is a side-scrolling game similar to Mario Bros.
 
 The player's goal is to collect all the coins on the map and then escape with the minimum number of movements.
 
+<div align="center"><img src="map/so_long.gif.gif" /></div>
+
 ---
 
 ## Compilation:
@@ -25,7 +27,7 @@ To launch the game, use `./so_long` followed by the `map name`.
 Example:
 
 ```
-./so_long ./maps/3.ber
+./so_long map/map3.ber
 ```
 
 ## Controls:
