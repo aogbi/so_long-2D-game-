@@ -34,10 +34,11 @@ Example:
 
 | Keyboard | Action |
 |---|---|
-| <kbd>↑</kbd>| Jump |
+| <kbd>↑</kbd>| Up |
 |  <kbd>↓</kbd>| Move Down |
 |  <kbd>←</kbd>| Move Left |
 |<kbd>→</kbd>| Move Right |
+|<kbd>Space</kbd>| Attack |
 | <kbd>ESC</kbd>, `⎋`| Close the game |
 
 ---
