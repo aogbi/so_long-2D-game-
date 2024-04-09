@@ -14,9 +14,9 @@ The player's goal is to collect all the coins on the map and then escape with th
 
 To compile the project, run the following command:
 
-\`\`\`bash
+```
 make
-\`\`\`
+```
 
 ## Usage:
 
@@ -24,9 +24,9 @@ To launch the game, use `./so_long` followed by the `map name`.
 
 Example:
 
-\`\`\`bash
+```
 ./so_long ./maps/3.ber
-\`\`\`
+```
 
 ## Controls:
 
