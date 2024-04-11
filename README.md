@@ -18,6 +18,8 @@ To compile the project, run the following command:
 
 ```
 sudo apt-get install gcc make xorg libxext-dev libbsd-dev
+```
+```
 make
 ```
 
