@@ -15,6 +15,7 @@ The player's goal is to collect all the coins on the map and then escape with th
 ## Installation
 
 ### Cloning the repositories
+Requirements for Linux
 ```shell
 sudo apt-get install gcc make xorg libxext-dev libbsd-dev
 git clone https://github.com/aogbi/so_long-2D-game-.git
