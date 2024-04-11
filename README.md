@@ -17,6 +17,7 @@ The player's goal is to collect all the coins on the map and then escape with th
 To compile the project, run the following command:
 
 ```
+sudo apt-get install gcc make xorg libxext-dev libbsd-dev
 make
 ```
 
