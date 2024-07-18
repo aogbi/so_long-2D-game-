@@ -14,15 +14,18 @@ EXEC = so_long
 all: $(EXEC)
 
 $(EXEC): $(OBJS)
+	make -C mlx
 	$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $@
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	$(CC) $(CFLAGS) -I$(INCDIR) -I$(LIBFTDIR) -I$(FT_PRINTFDIR) -I$(MLXDIR) -c $< -o $@
 
 clean:
+	make clean -C mlx
 	rm -f $(OBJS)
 
 fclean: clean
+	make fclean -C mlx
 	rm -f $(EXEC)
 
 re: fclean all
